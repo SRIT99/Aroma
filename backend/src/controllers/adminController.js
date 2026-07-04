@@ -205,6 +205,39 @@ class AdminController {
       next(error);
     }
   }
+  // Update staff avatar
+  async updateStaffAvatar(req, res, next) {
+    try {
+      const { id } = req.params;
+      const file = req.file;
+
+      if (!file) {
+        throw new AppError('No file uploaded', 400);
+      }
+
+      // Get staff
+      const staff = await AdminService.getUserById(id);
+      
+      // Delete old avatar if exists
+      if (staff.profileImage && staff.profileImage.includes('cloudinary')) {
+        const publicId = staff.profileImage.split('/').pop().split('.')[0];
+        await deleteFile(`aroma/profiles/${publicId}`);
+      }
+      // Update staff with new avatar URL
+      staff.profileImage = file.path; // Cloudinary URL
+      await staff.save();
+
+      res.json({
+        success: true,
+        message: 'Avatar updated successfully',
+        data: {
+          profileImage: file.path
+        }
+      });
+    } catch (error) {
+      next(error);
+    }
+  }
 }
 
 module.exports = new AdminController();
