@@ -1,0 +1,124 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: #faf6f1;
+    --foreground: #1a1a1a;
+    --primary: #d97706;
+    --primary-light: #f59e0b;
+    --secondary: #8b5a3c;
+    --accent: #10b981;
+    --muted: #a1a1a1;
+    --border: #e5ddd0;
+    
+    --font-sans: 'Inter', system-ui, sans-serif;
+    --font-serif: 'Merriweather', serif;
+    
+    --radius: 8px;
+  }
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    background-color: var(--background);
+    color: var(--foreground);
+  }
+
+  body {
+    @apply antialiased;
+    font-family: var(--font-sans);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-serif);
+    @apply font-bold;
+  }
+
+  button {
+    @apply transition-colors duration-200;
+  }
+}
+
+@layer utilities {
+  .container-custom {
+    @apply mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .section-padding {
+    @apply py-16 sm:py-20 lg:py-24;
+  }
+
+  .btn-primary {
+    @apply px-6 py-3 text-white rounded-lg font-semibold transition-colors duration-200;
+    background-color: var(--primary);
+  }
+  
+  .btn-primary:hover {
+    background-color: var(--primary-light);
+  }
+
+  .btn-secondary {
+    @apply px-6 py-3 text-white rounded-lg font-semibold transition-colors duration-200;
+    background-color: var(--secondary);
+    opacity: 0.9;
+  }
+  
+  .btn-secondary:hover {
+    opacity: 1;
+  }
+
+  .btn-outline {
+    @apply px-6 py-3 border-2 rounded-lg font-semibold transition-colors duration-200;
+    border-color: var(--primary);
+    color: var(--primary);
+  }
+  
+  .btn-outline:hover {
+    background-color: var(--primary);
+    color: white;
+  }
+
+  .card-hover {
+    @apply transition-transform duration-300 hover:scale-105 hover:shadow-lg;
+  }
+
+  .text-gradient {
+    @apply bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent;
+  }
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.6s ease-out;
+}

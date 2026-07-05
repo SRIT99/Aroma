@@ -28,16 +28,14 @@ router.get("/staff/:id", adminController.getStaffById);
 router.put("/staff/:id", adminController.updateStaff);
 router.delete("/staff/:id", adminController.deleteStaff);
 
-// Staff avatar upload
-router.post(
-  "/staff/:id/avatar",
-  uploadSingle("profile", "avatar"),
-  handleUploadError,
-  adminController.updateStaffAvatar,
-);
-
 // System settings (super admin only)
 router.get("/settings", adminController.getSettings);
 router.put("/settings", adminController.updateSettings);
 
+router.post(
+  "/staff/:id/avatar",
+  uploadSingle("avatar"), // now uploadSingle is correct
+  handleUploadError,
+  adminController.updateStaffAvatar,
+);
 module.exports = router;
