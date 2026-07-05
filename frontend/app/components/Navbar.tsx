@@ -26,16 +26,15 @@ export default function Navbar() {
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => (
-              <a
+              <Link
                 key={link.href}
                 href={link.href}
                 className="text-foreground hover:text-primary transition-colors"
               >
                 {link.label}
-              </a>
+              </Link>
             ))}
-          </div>
-
+          </div>Link
           {/* Auth Buttons */}
           <div className="hidden md:flex items-center gap-4">
             <Link
@@ -67,14 +66,14 @@ export default function Navbar() {
         {isOpen && (
           <div className="md:hidden pb-4 space-y-2">
             {navLinks.map((link) => (
-              <a
+              <Link
                 key={link.href}
                 href={link.href}
                 className="block px-4 py-2 text-foreground hover:bg-primary hover:text-white rounded-lg transition-colors"
                 onClick={() => setIsOpen(false)}
               >
                 {link.label}
-              </a>
+              </Link>
             ))}
             <div className="flex gap-2 pt-2">
               <Link

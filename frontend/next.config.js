@@ -1,19 +1,30 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  swcMinify: true,
   poweredByHeader: false,
 
   images: {
-    domains: [
-      "localhost",
-      "res.cloudinary.com",
-      "images.unsplash.com",
-      "plus.unsplash.com",
+    remotePatterns: [
+      {
+        protocol: 'http',
+        hostname: 'localhost',
+      },
+      {
+        protocol: 'https',
+        hostname: 'res.cloudinary.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'images.unsplash.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'plus.unsplash.com',
+      },
     ],
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
-    formats: ["image/webp", "image/avif"],
+    formats: ['image/webp', 'image/avif'],
     minimumCacheTTL: 60,
     dangerouslyAllowSVG: true,
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
@@ -21,50 +32,42 @@ const nextConfig = {
 
   compiler: {
     removeConsole:
-      process.env.NODE_ENV === "production"
+      process.env.NODE_ENV === 'production'
         ? {
-            exclude: ["error", "warn"],
+            exclude: ['error', 'warn'],
           }
         : false,
-  },
-
-  experimental: {
-    optimizeCss: true,
   },
 
   headers: async () => {
     return [
       {
-        source: "/(.*)",
+        source: '/(.*)',
         headers: [
           {
-            key: "X-Content-Type-Options",
-            value: "nosniff",
+            key: 'X-Content-Type-Options',
+            value: 'nosniff',
           },
           {
-            key: "X-Frame-Options",
-            value: "DENY",
+            key: 'X-Frame-Options',
+            value: 'DENY',
           },
           {
-            key: "X-XSS-Protection",
-            value: "1; mode=block",
+            key: 'Referrer-Policy',
+            value: 'strict-origin-when-cross-origin',
           },
           {
-            key: "Referrer-Policy",
-            value: "strict-origin-when-cross-origin",
-          },
-          {
-            key: "Permissions-Policy",
-            value: "camera=(), microphone=(), geolocation=()",
+            key: 'Permissions-Policy',
+            value: 'camera=(), microphone=(), geolocation=()',
           },
         ],
       },
       {
-        source: "/api/(.*)",
+        source: '/api/(.*)',
         headers: [
           {
-            key: "Cache-Control",
-            value: "no-store, max-age=0",
+            key: 'Cache-Control',
+            value: 'no-store, max-age=0',
           },
         ],
       },
@@ -72,7 +75,6 @@ const nextConfig = {
   },
 
   webpack: (config, { isServer }) => {
-    // Fix for packages that need polyfills
     if (!isServer) {
       config.resolve.fallback = {
         ...config.resolve.fallback,
@@ -81,7 +83,6 @@ const nextConfig = {
         tls: false,
       };
     }
-
     return config;
   },
 };
