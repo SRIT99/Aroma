@@ -42,7 +42,7 @@ export default function HeroSection() {
       name: 'Chicken Mo:Mo Platter',
       price: 250,
     },
-    backgroundImage: '/../frontend/public/images/hero-bg.jpg', // default static image
+    backgroundImage: '/images/hero-bg.jpg', // default static image
   });
 
   useEffect(() => {
