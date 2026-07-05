@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import Image from 'next/image'; // <-- ADD THIS
+import Link from 'next/link';
 
 interface HeroData {
   title?: string;
@@ -41,7 +42,7 @@ export default function HeroSection() {
       name: 'Chicken Mo:Mo Platter',
       price: 250,
     },
-    backgroundImage: '/../frontend/public/images/hero-bg.jpg', // default static image
+    backgroundImage: '/images/hero-bg.jpg', // default static image
   });
 
   useEffect(() => {
@@ -88,18 +89,18 @@ export default function HeroSection() {
             )}
 
             <div className="flex flex-col gap-4 sm:flex-row">
-              <a
+              <Link
                 href={heroData.ctaLink || '/menu'}
                 className="rounded-lg bg-white px-8 py-3 text-center font-semibold text-primary transition-colors hover:bg-opacity-90"
               >
                 {heroData.ctaText || 'Order Now'}
-              </a>
-              <a
+              </Link>
+              <Link
                 href={heroData.secondaryCtaLink || '/specials'}
                 className="rounded-lg border-2 border-white px-8 py-3 text-center font-semibold text-white transition-colors hover:bg-white hover:text-primary"
               >
                 {heroData.secondaryCtaText || "Today's Special"}
-              </a>
+              </Link>
             </div>
           </div>
 

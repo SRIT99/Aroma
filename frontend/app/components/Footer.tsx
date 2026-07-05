@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function Footer() {
   const currentYear = new Date().getFullYear()
 
@@ -17,10 +19,10 @@ export default function Footer() {
           <div>
             <h4 className="font-semibold mb-4">Quick Links</h4>
             <ul className="space-y-2 text-sm text-white/80">
-              <li><a href="/" className="hover:text-white transition-colors">Home</a></li>
-              <li><a href="#menu" className="hover:text-white transition-colors">Menu</a></li>
-              <li><a href="#leaderboard" className="hover:text-white transition-colors">Leaderboard</a></li>
-              <li><a href="#contact" className="hover:text-white transition-colors">Contact</a></li>
+              <li><Link href="/" className="hover:text-white transition-colors">Home</Link></li>
+              <li><Link href="#menu" className="hover:text-white transition-colors">Menu</Link></li>
+              <li><Link href="#leaderboard" className="hover:text-white transition-colors">Leaderboard</Link></li>
+              <li><Link href="#contact" className="hover:text-white transition-colors">Contact</Link></li>
             </ul>
           </div>
 
@@ -52,8 +54,8 @@ export default function Footer() {
               © {currentYear} Aroma Restaurant. All rights reserved.
             </p>
             <div className="flex gap-4 text-sm text-white/70">
-              <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
-              <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
+              <Link href="#" className="hover:text-white transition-colors">Privacy Policy</Link>
+              <Link href="#" className="hover:text-white transition-colors">Terms of Service</Link>
             </div>
           </div>
         </div>

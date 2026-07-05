@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import axios from 'axios'
-
+import Link from 'next/link'
 export default function BeOurCustomer() {
   const [formData, setFormData] = useState({
     name: '',
@@ -190,9 +190,9 @@ export default function BeOurCustomer() {
               {/* Login Link */}
               <p className="text-center text-sm text-muted">
                 Already have an account?{' '}
-                <a href="/login" className="text-primary font-semibold hover:underline">
+                <Link href="/login" className="text-primary font-semibold hover:underline">
                   Login here
-                </a>
+                </Link>
               </p>
             </form>
           </div>

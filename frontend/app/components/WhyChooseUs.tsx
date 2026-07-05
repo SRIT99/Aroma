@@ -1,3 +1,4 @@
+import Link from "next/link"
 export default function WhyChooseUs() {
   const reasons = [
     {
@@ -57,9 +58,9 @@ export default function WhyChooseUs() {
           <h3 className="text-2xl sm:text-3xl font-serif font-bold text-foreground mb-6">
             Ready for an exceptional dining experience?
           </h3>
-          <a href="#contact" className="btn-primary inline-block">
+          <Link href="#contact" className="btn-primary inline-block">
             Reserve Your Table Today
-          </a>
+          </Link>
         </div>
       </div>
     </section>

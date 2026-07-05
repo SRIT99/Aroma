@@ -35,7 +35,7 @@ export default function DishCard({ dish }: DishCardProps) {
             fill
             className="object-cover"
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-            // onError={() => setImgError(true)} // ✅ Fallback on error
+            onError={() => setImgError(true)}
           />
         ) : (
           <div className="flex h-full w-full items-center justify-center text-6xl">🍽️</div>

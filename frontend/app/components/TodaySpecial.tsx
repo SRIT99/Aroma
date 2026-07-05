@@ -19,7 +19,7 @@ export default function TodaySpecial() {
       name: 'chicken Mo-mo',
       description: 'Steamed dumplings with meat filling',
       price: 150,
-      image: '/../frontend/public/images/momo.jpg',
+      image: '/images/momo.jpg',
       discount: 20,
     },
     {
@@ -27,7 +27,7 @@ export default function TodaySpecial() {
       name: 'Burger',
       description: 'Juicy grilled burger with fresh vegetables and special sauce',
       price: 290,
-      image: '/../frontend/public/images/burger.jpg',
+      image: '/images/burger.jpg',
       discount: 15,
     },
     {
@@ -35,7 +35,7 @@ export default function TodaySpecial() {
       name: 'Chicken wings',
       description: 'Crispy fried chicken wings tossed in spicy sauce',
       price: 320,
-      image: '/../frontend/public/images/chickenwings.jpg',
+      image: '/images/chickenwings.jpg',
       discount: 25,
     },
   ]);
