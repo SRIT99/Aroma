@@ -10,3 +10,15 @@ dist
 package-lock.json 
 scripts/*
 logs
+node_modules
+.next
+*.log
+.env
+.env.local
+.env.*.local
+.DS_Store
+.idea
+dist
+package-lock.json 
+scripts/*
+logs
