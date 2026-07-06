@@ -48,16 +48,18 @@ export default function LoginPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-primary to-secondary flex items-center">
+    <div className="min-h-screen flex items-center bg-[var(--bg)] relative overflow-hidden">
+      <div className="pointer-events-none absolute -left-40 top-0 h-96 w-96 rounded-full bg-[var(--ember)]/10 blur-[120px]" />
+      <div className="pointer-events-none absolute -right-40 bottom-0 h-96 w-96 rounded-full bg-[var(--gold)]/10 blur-[120px]" />
       <div className="container-custom w-full">
         <div className="max-w-md mx-auto">
-          <div className="bg-white rounded-2xl shadow-2xl p-8 md:p-12">
-            <h1 className="text-3xl font-serif font-bold text-center text-foreground mb-8">
-              Welcome Back
+          <div className="glass relative rounded-2xl shadow-card p-8 md:p-12">
+            <h1 className="text-3xl font-display font-semibold text-center text-[var(--ink)] mb-8">
+              Welcome <span className="text-gradient italic">back</span>
             </h1>
 
             {error && (
-              <div className="mb-6 p-4 bg-red-100 text-red-700 rounded-lg text-sm">
+              <div className="mb-6 p-4 border border-red-500/40 bg-red-500/10 text-red-400 rounded-lg text-sm">
                 {error}
               </div>
             )}
@@ -65,7 +67,7 @@ export default function LoginPage() {
             <form onSubmit={handleSubmit} className="space-y-6">
               {/* Email */}
               <div>
-                <label className="block text-sm font-semibold text-foreground mb-2">
+                <label className="block text-sm font-semibold text-[var(--ink)] mb-2">
                   Email Address
                 </label>
                 <input
@@ -74,14 +76,14 @@ export default function LoginPage() {
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 border border-border rounded-lg focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20"
+                  className="w-full px-4 py-3 border border-[var(--line)] bg-[var(--bg)] text-[var(--ink)] placeholder:text-[var(--smoke)] rounded-xl focus:outline-none focus:border-[var(--ember)] focus:ring-2 focus:ring-[var(--ember)]/20 transition-colors"
                   placeholder="your@email.com"
                 />
               </div>
 
               {/* Password */}
               <div>
-                <label className="block text-sm font-semibold text-foreground mb-2">
+                <label className="block text-sm font-semibold text-[var(--ink)] mb-2">
                   Password
                 </label>
                 <input
@@ -90,7 +92,7 @@ export default function LoginPage() {
                   value={formData.password}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 border border-border rounded-lg focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20"
+                  className="w-full px-4 py-3 border border-[var(--line)] bg-[var(--bg)] text-[var(--ink)] placeholder:text-[var(--smoke)] rounded-xl focus:outline-none focus:border-[var(--ember)] focus:ring-2 focus:ring-[var(--ember)]/20 transition-colors"
                   placeholder="Enter your password"
                 />
               </div>
@@ -107,13 +109,13 @@ export default function LoginPage() {
 
             {/* Footer */}
             <div className="mt-8 text-center space-y-4">
-              <p className="text-sm text-muted">
+              <p className="text-sm text-[var(--smoke)]">
                 Don&apos;t have an account?{' '}
-                <Link href="/register" className="text-primary font-semibold hover:underline">
+                <Link href="/register" className="text-[var(--ember-light)] font-semibold hover:underline">
                   Sign up now
                 </Link>
               </p>
-              <Link href="/" className="text-sm text-primary hover:underline block">
+              <Link href="/" className="text-sm text-[var(--ember-light)] hover:underline block">
                 Back to Home
               </Link>
             </div>

@@ -61,22 +61,24 @@ export default function RegisterPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-primary to-secondary flex items-center py-8">
+    <div className="min-h-screen flex items-center bg-[var(--bg)] relative overflow-hidden py-12">
+      <div className="pointer-events-none absolute -left-40 top-0 h-96 w-96 rounded-full bg-[var(--ember)]/10 blur-[120px]" />
+      <div className="pointer-events-none absolute -right-40 bottom-0 h-96 w-96 rounded-full bg-[var(--gold)]/10 blur-[120px]" />
       <div className="container-custom w-full">
         <div className="max-w-md mx-auto">
-          <div className="bg-white rounded-2xl shadow-2xl p-8 md:p-12">
-            <h1 className="text-3xl font-serif font-bold text-center text-foreground mb-8">
-              Join Aroma
+          <div className="glass relative rounded-2xl shadow-card p-8 md:p-12">
+            <h1 className="text-3xl font-display font-semibold text-center text-[var(--ink)] mb-8">
+              Join <span className="text-gradient italic">Aroma</span>
             </h1>
 
             {error && (
-              <div className="mb-6 p-4 bg-red-100 text-red-700 rounded-lg text-sm">
+              <div className="mb-6 p-4 border border-red-500/40 bg-red-500/10 text-red-400 rounded-lg text-sm">
                 {error}
               </div>
             )}
 
             {success && (
-              <div className="mb-6 p-4 bg-accent text-white rounded-lg text-sm">
+              <div className="mb-6 p-4 border border-[var(--gold)]/40 bg-[var(--gold)]/10 text-[var(--gold)] rounded-lg text-sm">
                 {success}
               </div>
             )}
@@ -84,7 +86,7 @@ export default function RegisterPage() {
             <form onSubmit={handleSubmit} className="space-y-4">
               {/* Name */}
               <div>
-                <label className="block text-sm font-semibold text-foreground mb-2">
+                <label className="block text-sm font-semibold text-[var(--ink)] mb-2">
                   Full Name
                 </label>
                 <input
@@ -93,14 +95,14 @@ export default function RegisterPage() {
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 border border-border rounded-lg focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20"
+                  className="w-full px-4 py-3 border border-[var(--line)] bg-[var(--bg)] text-[var(--ink)] placeholder:text-[var(--smoke)] rounded-xl focus:outline-none focus:border-[var(--ember)] focus:ring-2 focus:ring-[var(--ember)]/20 transition-colors"
                   placeholder="Your name"
                 />
               </div>
 
               {/* Email */}
               <div>
-                <label className="block text-sm font-semibold text-foreground mb-2">
+                <label className="block text-sm font-semibold text-[var(--ink)] mb-2">
                   Email Address
                 </label>
                 <input
@@ -109,14 +111,14 @@ export default function RegisterPage() {
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 border border-border rounded-lg focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20"
+                  className="w-full px-4 py-3 border border-[var(--line)] bg-[var(--bg)] text-[var(--ink)] placeholder:text-[var(--smoke)] rounded-xl focus:outline-none focus:border-[var(--ember)] focus:ring-2 focus:ring-[var(--ember)]/20 transition-colors"
                   placeholder="your@email.com"
                 />
               </div>
 
               {/* Phone */}
               <div>
-                <label className="block text-sm font-semibold text-foreground mb-2">
+                <label className="block text-sm font-semibold text-[var(--ink)] mb-2">
                   Phone Number
                 </label>
                 <input
@@ -125,14 +127,14 @@ export default function RegisterPage() {
                   value={formData.phone}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 border border-border rounded-lg focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20"
+                  className="w-full px-4 py-3 border border-[var(--line)] bg-[var(--bg)] text-[var(--ink)] placeholder:text-[var(--smoke)] rounded-xl focus:outline-none focus:border-[var(--ember)] focus:ring-2 focus:ring-[var(--ember)]/20 transition-colors"
                   placeholder="+977 98XXXXXXXX"
                 />
               </div>
 
               {/* Password */}
               <div>
-                <label className="block text-sm font-semibold text-foreground mb-2">
+                <label className="block text-sm font-semibold text-[var(--ink)] mb-2">
                   Password
                 </label>
                 <input
@@ -141,14 +143,14 @@ export default function RegisterPage() {
                   value={formData.password}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 border border-border rounded-lg focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20"
+                  className="w-full px-4 py-3 border border-[var(--line)] bg-[var(--bg)] text-[var(--ink)] placeholder:text-[var(--smoke)] rounded-xl focus:outline-none focus:border-[var(--ember)] focus:ring-2 focus:ring-[var(--ember)]/20 transition-colors"
                   placeholder="Create a strong password"
                 />
               </div>
 
               {/* Confirm Password */}
               <div>
-                <label className="block text-sm font-semibold text-foreground mb-2">
+                <label className="block text-sm font-semibold text-[var(--ink)] mb-2">
                   Confirm Password
                 </label>
                 <input
@@ -157,7 +159,7 @@ export default function RegisterPage() {
                   value={formData.confirmPassword}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 border border-border rounded-lg focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20"
+                  className="w-full px-4 py-3 border border-[var(--line)] bg-[var(--bg)] text-[var(--ink)] placeholder:text-[var(--smoke)] rounded-xl focus:outline-none focus:border-[var(--ember)] focus:ring-2 focus:ring-[var(--ember)]/20 transition-colors"
                   placeholder="Confirm your password"
                 />
               </div>
@@ -174,13 +176,13 @@ export default function RegisterPage() {
 
             {/* Footer */}
             <div className="mt-8 text-center space-y-4">
-              <p className="text-sm text-muted">
+              <p className="text-sm text-[var(--smoke)]">
                 Already have an account?{' '}
-                <Link href="/login" className="text-primary font-semibold hover:underline">
+                <Link href="/login" className="text-[var(--ember-light)] font-semibold hover:underline">
                   Login here
                 </Link>
               </p>
-              <Link href="/" className="text-sm text-primary hover:underline block">
+              <Link href="/" className="text-sm text-[var(--ember-light)] hover:underline block">
                 Back to Home
               </Link>
             </div>
